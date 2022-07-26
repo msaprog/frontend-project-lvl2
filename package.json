@@ -1,5 +1,5 @@
 {
-  "name": "frontend-project-lvl2",
+  "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
   "description": "[![Actions Status](https://github.com/msaprog/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/msaprog/frontend-project-lvl2/actions)",
@@ -11,13 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/msaprog/frontend-project-lvl2.git"
   },
-  "author": "",
+  "author": "Iam",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/msaprog/frontend-project-lvl2/issues"
   },
   "homepage": "https://github.com/msaprog/frontend-project-lvl2#readme",
   "dependencies": {
+    "commander": "^9.4.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -26,5 +27,8 @@
     "eslint-plugin-import": "^2.26.0",
     "make": "^0.8.1",
     "prettier": "^2.7.1"
+  },
+  "bin": {
+    "gendiff": "bin/gendiff.js"
   }
 }
