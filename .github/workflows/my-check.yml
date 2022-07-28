@@ -20,5 +20,5 @@ jobs:
       - name: 'install'
         run: npm i
       
-      - name: 'test'
-        run: npm run test      
+      - name: 'lint'
+        run: npx eslint --fix .      
