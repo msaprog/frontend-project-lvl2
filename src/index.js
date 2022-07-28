@@ -17,23 +17,23 @@ export const genDiff = (file1, file2) => {
 
     const collKeys = _.union(file1Keys, file2Keys).sort();
 
-    const Temp = collKeys.filter((key) => {
-      if (file1Keys.includes(key)) {
-        if (file2Keys.includes(key)) {
-          if (file1ContentObj[key] !== file2ContentObj[key]) {
-            resultKeys = (`${resultKeys}  - ${key}: ${file1ContentObj[key]}\n`);
-            resultKeys = (`${resultKeys}  + ${key}: ${file2ContentObj[key]}\n`);
+    for (let i = 0; i < collKeys.length; i += 1) {
+      if (file1Keys.includes(collKeys[i])) {
+        if (file2Keys.includes(collKeys[i])) {
+          if (file1ContentObj[collKeys[i]] !== file2ContentObj[collKeys[i]]) {
+            resultKeys = (`${resultKeys}  - ${collKeys[i]}: ${file1ContentObj[collKeys[i]]}\n`);
+            resultKeys = (`${resultKeys}  + ${collKeys[i]}: ${file2ContentObj[collKeys[i]]}\n`);
           } else {
-            resultKeys = (`${resultKeys}    ${key}: ${file1ContentObj[key]}\n`);
+            resultKeys = (`${resultKeys}    ${collKeys[i]}: ${file1ContentObj[collKeys[i]]}\n`);
           }
         } else {
-          resultKeys = (`${resultKeys}  - ${key}: ${file1ContentObj[key]}\n`);
+          resultKeys = (`${resultKeys}  - ${collKeys[i]}: ${file1ContentObj[collKeys[i]]}\n`);
         }
       } else {
-        resultKeys = (`${resultKeys}  + ${key}: ${file2ContentObj[key]}\n`);
+        resultKeys = (`${resultKeys}  + ${collKeys[i]}: ${file2ContentObj[collKeys[i]]}\n`);
       }
-      return true;
-    });
+    }
+
     resultKeys = (`${resultKeys}}`);
   }
   console.log(resultKeys);
