@@ -8,8 +8,7 @@
 
 ### My tests and linter status:
 
-[![msaprog](https://github.com/msaprog/frontend-project-lvl2/actions/workflows/my-check.yml/badge.svg)](https://github.com/msaprog/frontend-project-lvl2/actions/workflows/my-check.yml)
-
+[![msaprog-check](https://github.com/msaprog/frontend-project-lvl2/actions/workflows/msaprog-check.yml/badge.svg)](https://github.com/msaprog/frontend-project-lvl2/actions/workflows/msaprog-check.yml)
 Задание 2.
 
 [![asciicast](https://asciinema.org/a/XBuqeqX0vt37T27MEUIGakmin.svg)](https://asciinema.org/a/XBuqeqX0vt37T27MEUIGakmin)
