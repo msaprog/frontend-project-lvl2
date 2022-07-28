@@ -6,6 +6,8 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/543ca255e28771607aec/test_coverage)](https://codeclimate.com/github/msaprog/frontend-project-lvl2/test_coverage)
 
+### My tests and linter status:
+
 Задание 2.
 
 [![asciicast](https://asciinema.org/a/XBuqeqX0vt37T27MEUIGakmin.svg)](https://asciinema.org/a/XBuqeqX0vt37T27MEUIGakmin)
