@@ -1,14 +1,11 @@
 name: GitHub Actions My
- push:
+
+on:
+  push:
     branches:
       - "**"
     tags:
       - "**"
-jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello, World!"
 
 jobs:
   build:
