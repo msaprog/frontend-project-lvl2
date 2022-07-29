@@ -1,4 +1,4 @@
-name: build
+name: msaprog-code_climate
 on:
   push:
     branches:
