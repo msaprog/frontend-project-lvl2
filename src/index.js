@@ -3,7 +3,8 @@ import _ from 'lodash';
 import path from 'path';
 
 export const genDiff = (file1, file2) => {
-  let resultKeys = '{\n';
+  const firstBrace = '{\n';
+  let resultKeys = `${firstBrace}`;
 
   const currentDir = process.cwd();
   const currentPathF1 = path.resolve(currentDir, file1);
@@ -33,7 +34,6 @@ export const genDiff = (file1, file2) => {
         resultKeys = (`${resultKeys}  + ${collKeys[i]}: ${file2ContentObj[collKeys[i]]}\n`);
       }
     }
-
     resultKeys = (`${resultKeys}}`);
   }
   console.log(resultKeys);
