@@ -21,4 +21,4 @@ jobs:
         run: npm i
       
       - name: 'lint'
-        run: npx eslint --fix .      
+        run: make lint      
