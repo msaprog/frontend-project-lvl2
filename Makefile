@@ -2,7 +2,7 @@ install: # установить зависимости
 	npm ci
 
 test: # запуск игры
-	NODE_OPTIONS=--experimental-vm-modules npx jest
+	NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
 
 publish: #  
 	npm publish --dry-run
