@@ -1,8 +1,8 @@
 install: # установить зависимости
 	npm ci
 
-brain-games: # запуск игры
-	node bin/brain-games.js
+test: # запуск игры
+	NODE_OPTIONS=--experimental-vm-modules npx jest
 
 publish: #  
 	npm publish --dry-run
