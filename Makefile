@@ -1,10 +1,10 @@
 install: # установить зависимости
 	npm ci
 
-test: # запуск игры
+test: #  --watchAll
 	NODE_OPTIONS=--experimental-vm-modules npx jest
 
-test-coverage: # Отладить, не работает	NODE_OPTIONS=--experimental-vm-modules npx jest -- --coverage --coverageProvider=v8
+test-coverage: # NODE_OPTIONS=--experimental-vm-modules npx jest -- --coverage --coverageProvider=v8
 	NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
 
 publish: #  
