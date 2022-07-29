@@ -12,8 +12,3 @@ if (genDiff('__fixtures__/file1.json', '__fixtures__/file2.json') !== `{
 }
 
 console.log('Все тесты пройдены!');
-
-test('genDeff', () => {
-  expect(reverse('hello')).toEqual('olleh');
-  expect(reverse('')).toEqual('');
-});
