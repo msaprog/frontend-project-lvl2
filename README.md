@@ -10,6 +10,10 @@
 
 [![msaprog-check](https://github.com/msaprog/frontend-project-lvl2/actions/workflows/msaprog-check.yml/badge.svg)](https://github.com/msaprog/frontend-project-lvl2/actions/workflows/msaprog-check.yml)
 
-Задание 2.
+Вычисление отличий в JSON файлах.
 
 [![asciicast](https://asciinema.org/a/XBuqeqX0vt37T27MEUIGakmin.svg)](https://asciinema.org/a/XBuqeqX0vt37T27MEUIGakmin)
+
+Вычисление отличий в yaml файлах.
+
+[![asciicast](https://asciinema.org/a/8t9WsHiEgxKXHdy3Te86eXHt3.svg)](https://asciinema.org/a/8t9WsHiEgxKXHdy3Te86eXHt3)
