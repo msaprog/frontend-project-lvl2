@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import _ from 'lodash';
 import { resolve, extname } from 'path';
-import parsers from './parsers.js';
+import { parsers } from './parsers.js';
 
 export const genDiff = (file1, file2) => {
   const currentDir = process.cwd();

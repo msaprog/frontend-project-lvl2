@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 
-export default (date, ext) => {
+export const parsers = (date, ext) => {
   if (ext === '.json') {
     return JSON.parse(date);
   } if (ext === ('.yaml' || '.yml')) {
@@ -8,3 +8,5 @@ export default (date, ext) => {
   }
   return -1;
 };
+
+export default parsers;
