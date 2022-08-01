@@ -11,7 +11,9 @@ export const genDiff = (file1, file2) => {
   let ext = extname(currentPathF1);
   const file1ContentObj = parsers(readFileSync(currentPathF1, 'utf8'), ext);
   ext = extname(currentPathF2);
+  console.log(readFileSync(currentPathF2, 'utf8'));
   const file2ContentObj = parsers(readFileSync(currentPathF2, 'utf8'), ext);
+  console.log(file2ContentObj);
 
   const file1Keys = Object.keys(file1ContentObj);
   const file2Keys = Object.keys(file2ContentObj);
