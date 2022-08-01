@@ -1,4 +1,4 @@
-import parsers from '../src/parsers.js';
+import { parsers } from '../src/parsers.js';
 
 test('parsers yaml3', () => {
   expect(parsers(`{
