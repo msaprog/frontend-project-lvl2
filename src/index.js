@@ -35,9 +35,7 @@ export const genDiff = (file1, file2) => {
       resultKeys = (`${resultKeys}  + ${collKeys[i]}: ${file2ContentObj[collKeys[i]]}\n`);
     }
   }
-  resultKeys = (`${resultKeys}}`);
-  console.log(resultKeys);
-  return resultKeys;
+  return (`${resultKeys}}`);
 };
 
 export default genDiff;
