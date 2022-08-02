@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
-import _ from 'lodash';
 import { resolve, extname } from 'path';
 import { parsers } from './parsers.js';
+import { getDiffStr } from './getdiffstr.js';
 
 export const genDiff = (file1, file2) => {
   const currentDir = process.cwd();
@@ -13,29 +13,7 @@ export const genDiff = (file1, file2) => {
   ext = extname(currentPathF2);
   const file2ContentObj = parsers(readFileSync(currentPathF2, 'utf8'), ext);
 
-  const file1Keys = Object.keys(file1ContentObj);
-  const file2Keys = Object.keys(file2ContentObj);
-
-  const collKeys = _.union(file1Keys, file2Keys).sort();
-
-  let resultKeys = '{\n';
-  for (let i = 0; i < collKeys.length; i += 1) {
-    if (file1Keys.includes(collKeys[i])) {
-      if (file2Keys.includes(collKeys[i])) {
-        if (file1ContentObj[collKeys[i]] !== file2ContentObj[collKeys[i]]) {
-          resultKeys = (`${resultKeys}  - ${collKeys[i]}: ${file1ContentObj[collKeys[i]]}\n`);
-          resultKeys = (`${resultKeys}  + ${collKeys[i]}: ${file2ContentObj[collKeys[i]]}\n`);
-        } else {
-          resultKeys = (`${resultKeys}    ${collKeys[i]}: ${file1ContentObj[collKeys[i]]}\n`);
-        }
-      } else {
-        resultKeys = (`${resultKeys}  - ${collKeys[i]}: ${file1ContentObj[collKeys[i]]}\n`);
-      }
-    } else {
-      resultKeys = (`${resultKeys}  + ${collKeys[i]}: ${file2ContentObj[collKeys[i]]}\n`);
-    }
-  }
-  return (`${resultKeys}}`);
+  return (getDiffStr(file1ContentObj, file2ContentObj));
 };
 
 export default genDiff;
