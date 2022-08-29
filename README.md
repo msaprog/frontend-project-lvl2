@@ -17,3 +17,11 @@
 Вычисление отличий в yaml файлах.
 
 [![asciicast](https://asciinema.org/a/8t9WsHiEgxKXHdy3Te86eXHt3.svg)](https://asciinema.org/a/8t9WsHiEgxKXHdy3Te86eXHt3)
+
+Вычисление отличий в JSON файлах (task 6).
+
+[![asciicast](https://asciinema.org/a/BaDNFe5gqb71LWiiA9AndGhcB.svg)](https://asciinema.org/a/BaDNFe5gqb71LWiiA9AndGhcB)
+
+Вычисление отличий в yaml файлах (task 6).
+
+[![asciicast](https://asciinema.org/a/aPa6e5IF9q4UGuYYApRqz2qAZ.svg)](https://asciinema.org/a/aPa6e5IF9q4UGuYYApRqz2qAZ)
