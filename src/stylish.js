@@ -27,7 +27,7 @@ export const formatedTree = (treeIn, replacer = '    ') => {
     if (lvl.state === 'notChanged') { return str(lvl.value, prefix.unchanged); }
     if (lvl.state === 'changed') { return (`${str(lvl.value1, prefix.deleted)}\n${str(lvl.value2, prefix.added)}`); }
     if (lvl.state === 'nested') { return (`${indentNest}${lvl.key}: ${['{', ...iter(lvl.value, countLvl + 1), `${indentNest}}`].join('\n')}`); }
-    return -1;
+    throw new Error('Data cannot be formatted!');
   });
 
   const resultDiff = iter(treeIn, 1);
