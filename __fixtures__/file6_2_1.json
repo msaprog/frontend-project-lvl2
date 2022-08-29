@@ -1,0 +1,17 @@
+{
+  "common": {
+    "follow": false,
+    "setting1": "Value 1",
+    "setting3": "furture",
+    "setting4": "blah blah",
+    "setting6": {
+      "key": "value",
+      "ops": "vops"
+    }
+  },
+  "group1": {
+    "foo": "bar",
+    "baz": "bars",
+    "nest": "str"
+  }
+}
