@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { resolve, extname } from 'path';
 import _ from 'lodash';
 import { parsers } from './parsers.js';
-import { formatedTree } from './stylish.js';
+import { choiceFormaters } from './formaters/index.js';
 
 export const genDiff = (file1, file2, formatStyle = 'stylish') => {
   const currentDir = process.cwd();
@@ -37,12 +37,7 @@ export const genDiff = (file1, file2, formatStyle = 'stylish') => {
     });
   };
 
-  const diff = getTree(file1ContentObj, file2ContentObj);
-  let formatDiff = diff;
-  if (formatStyle === 'stylish') {
-    formatDiff = formatedTree(diff);
-  }
-
+  const formatDiff = choiceFormaters(getTree(file1ContentObj, file2ContentObj), formatStyle);
   return formatDiff;
 };
 
