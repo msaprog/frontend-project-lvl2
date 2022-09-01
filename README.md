@@ -25,3 +25,7 @@
 Вычисление отличий в yaml файлах (task 6).
 
 [![asciicast](https://asciinema.org/a/aPa6e5IF9q4UGuYYApRqz2qAZ.svg)](https://asciinema.org/a/aPa6e5IF9q4UGuYYApRqz2qAZ)
+
+Вычисление отличий в файлах (task 7).
+
+[![asciicast](https://asciinema.org/a/RHT61pATBRL4Ws5YtoI0KUdN9.svg)](https://asciinema.org/a/RHT61pATBRL4Ws5YtoI0KUdN9)
