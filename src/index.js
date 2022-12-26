@@ -17,7 +17,6 @@ export const genDiff = (file1, file2, formatStyle = 'stylish') => {
     const file1Keys = _.keys(file1In);
     const file2Keys = _.keys(file2In);
     const sortedKeys = _.sortBy(_.union(file1Keys, file2Keys));
-
     return sortedKeys.map((key) => {
       if (!_.has(file1In, key)) {
         return { key, state: 'added', value: file2In[key] };
@@ -37,7 +36,8 @@ export const genDiff = (file1, file2, formatStyle = 'stylish') => {
     });
   };
 
-  const formatDiff = choiceFormaters(getTree(file1ContentObj, file2ContentObj), formatStyle);
+  const tempTree = getTree(file1ContentObj, file2ContentObj);
+  const formatDiff = choiceFormaters(tempTree, formatStyle);
   return formatDiff;
 };
 
