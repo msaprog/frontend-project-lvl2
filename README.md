@@ -29,3 +29,7 @@
 Вычисление отличий в файлах (task 7).
 
 [![asciicast](https://asciinema.org/a/RHT61pATBRL4Ws5YtoI0KUdN9.svg)](https://asciinema.org/a/RHT61pATBRL4Ws5YtoI0KUdN9)
+
+Вычисление отличий в файлах (task 8).
+
+[![asciicast](https://asciinema.org/a/bDL7TfygNGLm48oR5dLifFvtJ.svg)](https://asciinema.org/a/bDL7TfygNGLm48oR5dLifFvtJ)
