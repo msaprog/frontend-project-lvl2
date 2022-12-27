@@ -19,11 +19,8 @@ const way = (coll) => {
 };
 
 export const formatedJson = (treeIn) => {
-  let result = '';
-  result += '[';
-  result += way(treeIn);
-  result += ']';
-  return result;
+
+  return `[${way(treeIn)}]`;
 };
 
 export default formatedJson;
