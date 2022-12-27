@@ -4,16 +4,12 @@ const converterKey = ([key, value]) => ((typeof (value) === 'string') ? `"${key}
 
 const way = (coll) => {
   const convertObj = coll.map((itemObj) => {
-    const entries = Object.entries(itemObj);
-
-    const chekKey = entries.map((keyValueColl) => {
+    return `{${Object.entries(itemObj).map((keyValueColl) => {
       const [keyColl, valueColl] = keyValueColl;
       if (_.isArray(valueColl)) { return `"${keyColl}":[${way(valueColl)}]`; }
       if (_.isObject(valueColl)) { return `"${keyColl}":${way([valueColl])}`; }
       return converterKey(keyValueColl);
-    });
-
-    return `{${chekKey}}`;
+    })}}`;
   });
   return convertObj;
 };
