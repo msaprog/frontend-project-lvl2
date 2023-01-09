@@ -4,14 +4,16 @@ import { resolve, extname } from 'path';
 import { parse } from './parsers.js';
 import { chooseFormater } from './formaters/index.js';
 
-const ext = (filePath) => extname(filePath).slice(1);
+const getContent = (fileName) => {
+  const currentDir = process.cwd();
+  const filePath = resolve(currentDir, fileName);
+  const fileExt = extname(filePath).slice(1);
+  return parse(readFileSync(filePath, 'utf8'), fileExt);
+};
 
 export const genDiff = (fileName1, fileName2, formatStyle = 'stylish') => {
-  const currentDir = process.cwd();
-  const file1Path = resolve(currentDir, fileName1);
-  const file2Path = resolve(currentDir, fileName2);
-  const file1Content = parse(readFileSync(file1Path, 'utf8'), ext(file1Path));
-  const file2Content = parse(readFileSync(file2Path, 'utf8'), ext(file2Path));
+  const file1Content = getContent(fileName1);
+  const file2Content = getContent(fileName2);
 
   const getAstTree = (content1, content2) => {
     const contentKeys1 = _.keys(content1);
