@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
-import { resolve, extname } from 'path';
 import _ from 'lodash';
+import { resolve, extname } from 'path';
 import { parse } from './parsers.js';
 import { chooseFormater } from './formaters/index.js';
 
