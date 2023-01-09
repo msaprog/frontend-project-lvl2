@@ -2,7 +2,7 @@ import { formatedStilish } from './stylish.js';
 import { formatedPlain } from './plain.js';
 import { formatedJson } from './json.js';
 
-export const chooseFormater = (astTree, format) => {
+export const compareFiles = (astTree, format) => {
   switch (format) {
     case 'stylish':
       return formatedStilish(astTree);
@@ -15,4 +15,4 @@ export const chooseFormater = (astTree, format) => {
   }
 };
 
-export default chooseFormater;
+export default compareFiles;
