@@ -17,7 +17,7 @@ const prefix = {
   unchanged: ' ',
 };
 
-export const formatedStilish = (treeIn, replacer = '    ') => {
+export const formatedStilish = (astTree, replacer = '    ') => {
   const iter = (tree, countLvl) => tree.map((lvl) => {
     const indentNest = replacer.repeat(countLvl);
     const indentKey = indentNest.slice(2);
@@ -30,7 +30,7 @@ export const formatedStilish = (treeIn, replacer = '    ') => {
     throw new Error('Data cannot be formatted!');
   });
 
-  const resultDiff = iter(treeIn, 1);
+  const resultDiff = iter(astTree, 1);
   return ['{', ...resultDiff, '}'].join('\n');
 };
 

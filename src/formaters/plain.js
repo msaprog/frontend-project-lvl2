@@ -7,7 +7,7 @@ const stringifyPlain = (value) => {
   return _.isString(value) ? `'${value}'` : value;
 };
 
-export const formatedPlain = (treeIn) => {
+export const formatedPlain = (astTree) => {
   const iter = (tree, parent) => tree.flatMap((lvl) => {
     const path = [...parent, lvl.key].join('.');
     if (lvl.state === 'added') { return `Property '${path}' was added with value: ${stringifyPlain(lvl.value)}`; }
@@ -18,7 +18,7 @@ export const formatedPlain = (treeIn) => {
     throw new Error('Data cannot be formatted!');
   });
 
-  const resultDiff = iter(treeIn, []);
+  const resultDiff = iter(astTree, []);
   return [...resultDiff].join('\n');
 };
 

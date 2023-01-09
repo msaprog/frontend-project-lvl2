@@ -1,44 +1,42 @@
 import { readFileSync } from 'fs';
 import { resolve, extname } from 'path';
 import _ from 'lodash';
-import { parsers } from './parsers.js';
-import { choiceFormaters } from './formaters/index.js';
+import { parse } from './parsers.js';
+import { chooseFormater } from './formaters/index.js';
 
-export const genDiff = (file1, file2, formatStyle = 'stylish') => {
+const ext = (filePath) => extname(filePath).slice(1);
+
+export const genDiff = (fileName1, fileName2, formatStyle = 'stylish') => {
   const currentDir = process.cwd();
-  const currentPathF1 = resolve(currentDir, file1);
-  const currentPathF2 = resolve(currentDir, file2);
-  let ext = extname(currentPathF1).slice(1);
-  const file1ContentObj = parsers(readFileSync(currentPathF1, 'utf8'), ext);
-  ext = extname(currentPathF2).slice(1);
-  const file2ContentObj = parsers(readFileSync(currentPathF2, 'utf8'), ext);
+  const file1Path = resolve(currentDir, fileName1);
+  const file2Path = resolve(currentDir, fileName2);
+  const file1Content = parse(readFileSync(file1Path, 'utf8'), ext(file1Path));
+  const file2Content = parse(readFileSync(file2Path, 'utf8'), ext(file2Path));
 
-  const getTree = (file1In, file2In) => {
-    const file1Keys = _.keys(file1In);
-    const file2Keys = _.keys(file2In);
-    const sortedKeys = _.sortBy(_.union(file1Keys, file2Keys));
+  const getAstTree = (content1, content2) => {
+    const contentKeys1 = _.keys(content1);
+    const contentKeys2 = _.keys(content2);
+    const sortedKeys = _.sortBy(_.union(contentKeys1, contentKeys2));
     return sortedKeys.map((key) => {
-      if (!_.has(file1In, key)) {
-        return { key, state: 'added', value: file2In[key] };
+      if (!_.has(content1, key)) {
+        return { key, state: 'added', value: content2[key] };
       }
-      if (!_.has(file2In, key)) {
-        return { key, state: 'deleted', value: file1In[key] };
+      if (!_.has(content2, key)) {
+        return { key, state: 'deleted', value: content1[key] };
       }
-      if (_.isObject(file1In[key]) && _.isObject(file2In[key])) {
-        return { key, state: 'nested', value: getTree(file1In[key], file2In[key]) };
+      if (_.isObject(content1[key]) && _.isObject(content2[key])) {
+        return { key, state: 'nested', value: getAstTree(content1[key], content2[key]) };
       }
-      if (!_.isEqual(file1In[key], file2In[key])) {
+      if (!_.isEqual(content1[key], content2[key])) {
         return {
-          key, state: 'changed', value1: file1In[key], value2: file2In[key],
+          key, state: 'changed', value1: content1[key], value2: content2[key],
         };
       }
-      return { key, state: 'notChanged', value: file1In[key] };
+      return { key, state: 'notChanged', value: content1[key] };
     });
   };
 
-  const tempTree = getTree(file1ContentObj, file2ContentObj);
-  const formatDiff = choiceFormaters(tempTree, formatStyle);
-  return formatDiff;
+  return chooseFormater(getAstTree(file1Content, file2Content), formatStyle);
 };
 
 export default genDiff;

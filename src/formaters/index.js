@@ -2,17 +2,17 @@ import { formatedStilish } from './stylish.js';
 import { formatedPlain } from './plain.js';
 import { formatedJson } from './json.js';
 
-export const choiceFormaters = (diffIn, formaters) => {
-  switch (formaters) {
+export const chooseFormater = (astTree, format) => {
+  switch (format) {
     case 'stylish':
-      return formatedStilish(diffIn);
+      return formatedStilish(astTree);
     case 'plain':
-      return formatedPlain(diffIn);
+      return formatedPlain(astTree);
     case 'json':
-      return formatedJson(diffIn);
+      return formatedJson(astTree);
     default:
-      throw new Error(`Invalid style: '${formaters}'`);
+      throw new Error(`Invalid style: '${format}'`);
   }
 };
 
-export default choiceFormaters;
+export default chooseFormater;
