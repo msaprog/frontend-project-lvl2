@@ -1,6 +1,6 @@
 import { genDiff } from '../src/index.js';
 
-test('genDiff', () => {
+test('genDiff Stylish', () => {
   expect(genDiff('__fixtures__/file6_1.json', '__fixtures__/file6_2.json')).toBe(`{
     common: {
       + follow: false
@@ -59,4 +59,8 @@ Property 'group1.baz' was updated. From 'bas' to 'bars'
 Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
 Property 'group3' was added with value: [complex value]`);
+});
+
+test('genDiff JSON', () => {
+  expect(genDiff('__fixtures__/file6_1.json', '__fixtures__/file6_2.json', 'json')).toBe(`[{"key":"common","state":"nested","value":[{"key":"follow","state":"added","value":false},{"key":"setting1","state":"notChanged","value":"Value 1"},{"key":"setting2","state":"deleted","value":200},{"key":"setting3","state":"changed","value1":true,"value2":null},{"key":"setting4","state":"added","value":"blah blah"},{"key":"setting5","state":"added","value":{"key5":"value5"}},{"key":"setting6","state":"nested","value":[{"key":"doge","state":"nested","value":[{"key":"wow","state":"changed","value1":"","value2":"so much"}]},{"key":"key","state":"notChanged","value":"value"},{"key":"ops","state":"added","value":"vops"}]}]},{"key":"group1","state":"nested","value":[{"key":"baz","state":"changed","value1":"bas","value2":"bars"},{"key":"foo","state":"notChanged","value":"bar"},{"key":"nest","state":"changed","value1":{"key":"value"},"value2":"str"}]},{"key":"group2","state":"deleted","value":{"abc":12345,"deep":{"id":45}}},{"key":"group3","state":"added","value":{"deep":{"id":{"number":45}},"fee":100500}}]`);
 });
