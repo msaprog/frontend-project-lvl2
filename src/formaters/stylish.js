@@ -17,7 +17,7 @@ const prefix = {
   unchanged: ' ',
 };
 
-export const formatedStilish = (astTree, replacer = '    ') => {
+export const formatStilish = (ast, replacer = '    ') => {
   const iter = (tree, countLvl) => tree
     .map((lvl) => {
       const indentNest = replacer.repeat(countLvl);
@@ -41,8 +41,8 @@ export const formatedStilish = (astTree, replacer = '    ') => {
       }
     });
 
-  const resultDiff = iter(astTree, 1);
+  const resultDiff = iter(ast, 1);
   return ['{', ...resultDiff, '}'].join('\n');
 };
 
-export default formatedStilish;
+export default formatStilish;

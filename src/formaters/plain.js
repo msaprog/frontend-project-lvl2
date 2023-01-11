@@ -7,7 +7,7 @@ const stringifyPlain = (value) => {
   return _.isString(value) ? `'${value}'` : value;
 };
 
-export const formatedPlain = (astTree) => {
+export const formatPlain = (ast) => {
   const iter = (tree, parent) => tree
     .flatMap((lvl) => {
       const path = [...parent, lvl.key].join('.');
@@ -28,8 +28,8 @@ export const formatedPlain = (astTree) => {
       }
     });
 
-  const resultDiff = iter(astTree, []);
+  const resultDiff = iter(ast, []);
   return [...resultDiff].join('\n');
 };
 
-export default formatedPlain;
+export default formatPlain;

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export const getAstTree = (content1, content2) => {
+export const getAst = (content1, content2) => {
   const contentKeys1 = _.keys(content1);
   const contentKeys2 = _.keys(content2);
   const sortedKeys = _.sortBy(_.union(contentKeys1, contentKeys2));
@@ -13,7 +13,7 @@ export const getAstTree = (content1, content2) => {
         return { key, state: 'deleted', value: content1[key] };
       }
       if (_.isObject(content1[key]) && _.isObject(content2[key])) {
-        return { key, state: 'nested', value: getAstTree(content1[key], content2[key]) };
+        return { key, state: 'nested', value: getAst(content1[key], content2[key]) };
       }
       if (!_.isEqual(content1[key], content2[key])) {
         return {
@@ -24,4 +24,4 @@ export const getAstTree = (content1, content2) => {
     });
 };
 
-export default getAstTree;
+export default getAst;

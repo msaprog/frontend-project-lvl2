@@ -1,3 +1,3 @@
-export const formatedJson = (astTree) => JSON.stringify(astTree);
+export const formatJson = (ast) => JSON.stringify(ast);
 
-export default formatedJson;
+export default formatJson;

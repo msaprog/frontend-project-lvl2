@@ -1,15 +1,15 @@
-import { formatedStilish } from './stylish.js';
-import { formatedPlain } from './plain.js';
-import { formatedJson } from './json.js';
+import { formatStilish } from './stylish.js';
+import { formatPlain } from './plain.js';
+import { formatJson } from './json.js';
 
-export const compareFiles = (astTree, format) => {
+export const compareFiles = (ast, format) => {
   switch (format) {
     case 'stylish':
-      return formatedStilish(astTree);
+      return formatStilish(ast);
     case 'plain':
-      return formatedPlain(astTree);
+      return formatPlain(ast);
     case 'json':
-      return formatedJson(astTree);
+      return formatJson(ast);
     default:
       throw new Error(`Invalid style: '${format}'`);
   }
